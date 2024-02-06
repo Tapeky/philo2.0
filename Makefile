@@ -12,17 +12,22 @@
 
 NAME = philo
 
-SRCS =	philosopher.c \
-		parse.c       \
-		init_data.c   \
-		
+SRCS =	philosopher.c	\
+		parse.c			\
+		init_data.c		\
+		get_data.c		\
+		get_data2.c		\
+		actions.c		\
+		prints.c		\
+		ft_usleep.c		\
+		monitoring.c	\
 		
 		
 
 OBJS = $(SRCS:.c=.o)
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LIBS = -pthread
 
 all: $(NAME)

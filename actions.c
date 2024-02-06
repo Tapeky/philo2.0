@@ -32,6 +32,13 @@ int	ft_sleep(t_philo *philosopher)
 		return (1);
 	change_philo_state(philosopher, SLEEPING);
 	print_philo_action(philosopher, "is sleeping");
-	sleep_for(data->sleep_time);
+	ft_usleep(get_sleep_time(philo->data));
 	return (0);
+}
+
+void	change_philo_state(t_philo *philosopher, t_state new_state)
+{
+	pthread_mutex_lock(&philosopher->mut_state);
+	philosopher->state = new_state;
+	pthread_mutex_unlock(&philosopher->mut_state);
 }
