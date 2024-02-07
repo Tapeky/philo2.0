@@ -6,7 +6,7 @@
 #    By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:31:19 by tsadouk           #+#    #+#              #
-#    Updated: 2024/02/06 09:52:59 by tsadouk          ###   ########.fr        #
+#    Updated: 2024/02/07 15:30:28 by tsadouk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS =	philosopher.c	\
 		get_data.c		\
 		get_data2.c		\
 		actions.c		\
+		actions2.c		\
 		prints.c		\
 		ft_usleep.c		\
 		monitoring.c	\

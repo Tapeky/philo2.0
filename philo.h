@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:30:53 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/06 12:34:58 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:15:36 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,26 @@ t_state	get_philo_state(t_philo *philosopher);
 int	think(t_philo *philosopher);
 int	is_input_valid(char **argv);
 int	ft_sleep(t_philo *philosopher);
+
+
+
+// GETTERS
+
+int	get_nb_philos(t_data *data);
+t_state get_philo_state(t_philo *philo);
+int	get_nb_meals_philo_had(t_philo *philo);
+uint64_t	get_die_time(t_data *data);
+uint64_t	get_eat_time(t_data *data);
+uint64_t	get_last_eat_time(t_philo *philo);
+uint64_t	get_sleep_time(t_data *data);
+uint64_t	get_start_time(t_data *data);
+
+// FT_USLEEP
+
+uint64_t	get_time(void);
+void	ft_usleep(uint64_t time);
+void	wait_until(u_int64_t wakeup_time);
+
+
 
 #endif
