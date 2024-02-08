@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:30:53 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/08 14:38:02 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:18:03 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	print_philo_action(t_philo *philosopher, const char *action);
 
 int			get_nb_philos(t_data *data);
 int			get_nb_meals_philo_had(t_philo *philo);
+bool		get_keep_iter(t_data *data);
 t_state		get_philo_state(t_philo *philo);
 t_state		get_philo_state(t_philo *philosopher);
 uint64_t	get_die_time(t_data *data);

@@ -6,18 +6,15 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:41:27 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/08 14:41:29 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:15:47 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 
-void	*philo_routine(void *philo)
+void	*philo_routine(t_philo *philo)
 {
-	t_philo *philo;
-
-	philo = (t_philo *)philo;
 	update_last_meal_time(philo);
 	if (philo->id % 2 == 0)
 		ft_usleep(philo->data->eat_time - 10);

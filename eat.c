@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 13:28:46 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/08 14:32:51 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:13:42 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ int	nb_meals_option(t_data *data)
 		return (1);
 	}
 	return (0);
+}
+
+void	update_last_meal_time(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->mut_last_eat_time);
+	philo->last_eat_time = get_time();
+	pthread_mutex_unlock(&philo->mut_last_eat_time);
 }
 
 
