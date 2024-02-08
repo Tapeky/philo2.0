@@ -6,7 +6,7 @@
 #    By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:31:19 by tsadouk           #+#    #+#              #
-#    Updated: 2024/02/07 15:30:28 by tsadouk          ###   ########.fr        #
+#    Updated: 2024/02/08 14:38:28 by tsadouk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRCS =	philosopher.c	\
 		prints.c		\
 		ft_usleep.c		\
 		monitoring.c	\
-		
+		eat.c			\
+		free_handler.c	\
+		routine.c		\
 		
 
 OBJS = $(SRCS:.c=.o)

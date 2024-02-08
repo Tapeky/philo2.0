@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:58:00 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/07 15:43:54 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/08 14:28:42 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,4 @@ int monitor_all_alive(t_philo *philos)
 		i++;
 	}
 	return (0);
-}
-
-void	tell_to_all_pihlos(t_data *data)
-{
-	t_philo	*philos;
-	int		i;
-	int		nb_philos;
-
-	nb_philos = data->nb_philos;
-	i = 0;
-	while (i < nb_philos)
-	{
-		set_philo_state(&philos[i], DEAD);
-		i++;
-	}
 }

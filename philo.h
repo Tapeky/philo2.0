@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:30:53 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/07 15:44:06 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/08 14:38:02 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,49 +75,79 @@ typedef struct s_data
 }t_data;
 
 
-void	*philo_routine(void *arg);
-void	print_philo_action(t_philo *philosopher, const char *action);
+int		think(t_philo *philosopher);
+int		ft_atoi(const char *str);
 void	change_philo_state(t_philo *philosopher, t_state new_state);
-void	sleep_for(u_int64_t duration);
-void init_all(t_data *data, char **argv);
-void create_philo_threads(t_data *data);
-void	init_philosophers(t_data *data);
-void	init_forks(t_data *data);
-void init_mutex(t_data *data);
-void init_data(t_data *data, char **argv);
+void	create_philo_threads(t_data *data);
+
+
+// ERROR CHECKERS
+
 int	errors_handeler(int argc, char **argv);
-void print_args(char **argv);
-u_int64_t	get_time_in_ms(void);
-int	ft_atoi(const char *str);
-t_state	get_philo_state(t_philo *philosopher);
-int	think(t_philo *philosopher);
 int	is_input_valid(char **argv);
-int	ft_sleep(t_philo *philosopher);
 
 
+// INIT
+
+int		init_data(t_data *data, int argc, char **argv);
+void	init_philos(t_data *data);
+void	init_forks(t_data *data);
+void	init_mutex(t_data *data);
+void	init_all(t_data *data, char **argv);
+
+
+// PRINTS
+
+void	print_args(char **argv);
+void	print_philo_action(t_philo *philosopher, const char *action);
 
 // GETTERS
 
-int	get_nb_philos(t_data *data);
-t_state get_philo_state(t_philo *philo);
-int	get_nb_meals_philo_had(t_philo *philo);
+int			get_nb_philos(t_data *data);
+int			get_nb_meals_philo_had(t_philo *philo);
+t_state		get_philo_state(t_philo *philo);
+t_state		get_philo_state(t_philo *philosopher);
 uint64_t	get_die_time(t_data *data);
 uint64_t	get_eat_time(t_data *data);
-uint64_t	get_last_eat_time(t_philo *philo);
 uint64_t	get_sleep_time(t_data *data);
 uint64_t	get_start_time(t_data *data);
+uint64_t	get_last_eat_time(t_philo *philo);
 
-// FT_USLEEP
 
+// FT_USLEEP && FT_SLEEP
+
+int			ft_sleep(t_philo *philosopher);
+void		ft_usleep(uint64_t time);
+void		wait_until(u_int64_t wakeup_time);
+void		sleep_for(u_int64_t duration);
 uint64_t	get_time(void);
-void	ft_usleep(uint64_t time);
-void	wait_until(u_int64_t wakeup_time);
+u_int64_t	get_time_in_ms(void);
+
 
 // MONITORING
 
 int monitor_all_alive(t_philo *philos);
 int	is_philo_dead(t_philo *philo);
 int	is_philo_full(t_philo *philo);
+
+
+
+// ROUTINES
+
+void	*all_alive_routine(void *arg);
+void	*all_full_routine(void *arg);
+void	*philo_routine(void *arg);
+
+
+
+// EAT
+
+int	eat(t_philo *philo);
+int	nb_meals_option(t_data *data);
+
+// FREE
+
+void	free_data(t_data *data);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:30:28 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/06 10:16:19 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/08 14:16:05 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	run_threads(t_data *data)
 	while (++i < nb_of_philos)
 	{
 		if (pthread_create(&data->philo_ths[i], NULL,
-				&routine, &data->philos[i]))
+				&philo_routine, &data->philos[i]))
 			return (1);
 	}
 	if (pthread_create(&data->monit_all_alive, NULL,
@@ -62,7 +62,7 @@ int	philosophers(int argc, char **argv)
 	t_data	data;
 
 	if (init_data(&data, argc, argv) != 0)
-		return (MALLOC_ERROR);
+		return (1); // MALLOC ERROR
 	init_philos(&data);
 	init_forks(&data);
 	run_threads(&data);
@@ -77,7 +77,6 @@ int	main(int argc, char **argv)
 		return (1);
 
 	print_args(argv);
-
 
 	return (0);
 }

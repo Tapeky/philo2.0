@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosopher.c                                      :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 09:30:28 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/06 10:16:19 by tsadouk          ###   ########.fr       */
+/*   Created: 2024/02/06 12:41:27 by tsadouk           #+#    #+#             */
+/*   Updated: 2024/02/08 14:41:29 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
 
 void	*philo_routine(void *philo)
 {
@@ -75,7 +76,7 @@ void	*all_alive_routine(void *data_p)
 	{
 		if (philo_died(&philos[i]) && get_keep_iter(data))
 		{
-			print_msg(data, philos[i].id, DIED);
+			// print_msg(data, philos[i].id, DIED);
 			set_keep_iterating(data, false);
 			notify_all_philos(data);
 			break ;
