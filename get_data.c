@@ -41,3 +41,13 @@ int	get_nb_meals_philo_had(t_philo *philo)
 	pthread_mutex_unlock(&philo->mut_meals_eaten);
 	return (nb_meals);
 }
+
+bool	get_keep_iter(t_data *data)
+{
+	bool	keep_iterating;
+
+	pthread_mutex_lock(&data->mut_keep_iter);
+	keep_iterating = data->keep_iterating;
+	pthread_mutex_unlock(&data->mut_keep_iter);
+	return (keep_iterating);
+}

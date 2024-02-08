@@ -54,3 +54,18 @@ int monitor_all_alive(t_philo *philos)
 	}
 	return (0);
 }
+
+void	tell_to_all_pihlos(t_data *data)
+{
+	t_philo	*philos;
+	int		i;
+	int		nb_philos;
+
+	nb_philos = data->nb_philos;
+	i = 0;
+	while (i < nb_philos)
+	{
+		set_philo_state(&philos[i], DEAD);
+		i++;
+	}
+}
