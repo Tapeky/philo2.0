@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:30:53 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/08 15:18:03 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:22:46 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	init_philos(t_data *data);
 void	init_forks(t_data *data);
 void	init_mutex(t_data *data);
 void	init_all(t_data *data, char **argv);
+int set_keep_iterating(t_data *data, bool value);
+int notify_all_philos(t_data *data);
 
 
 // PRINTS
@@ -145,6 +147,17 @@ void	*philo_routine(void *arg);
 
 int	eat(t_philo *philo);
 int	nb_meals_option(t_data *data);
+void	drop_forks(t_philo *philo);
+void	drop_left_fork(t_philo *philo);
+void	drop_right_fork(t_philo *philo);
+int	take_left_fork(t_philo *philo);
+int	take_right_fork(t_philo *philo);
+int	take_forks(t_philo *philo);
+void	update_last_meal_time(t_philo *philo);
+void	update_nb_meals_had(t_philo *philo);
+void	sleep_for_eating(t_philo *philo);
+
+
 
 // FREE
 

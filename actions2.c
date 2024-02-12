@@ -6,29 +6,39 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 15:30:15 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/07 15:53:56 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/12 16:22:46 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 
-void	take_forks(t_philo *philo)
+int set_keep_iterating(t_data *data, bool value)
 {
-	t_data	*data;
-
-	data = philo->data;
-	pthread_mutex_lock(&philo->left_fork[philo->id]);
-	print_philo_action(philo, "has taken a fork");
-	pthread_mutex_lock(&philo->right_fork[(philo->id + 1) % data->nb_philos]);
-	print_philo_action(philo, "has taken a fork");
+	pthread_mutex_lock(&data->mut_keep_iter);
+	data->keep_iterating = value;
+	pthread_mutex_unlock(&data->mut_keep_iter);
+	return (0);
 }
 
-void	drop_forks(t_philo *philo)
+int notify_all_philos(t_data *data)
 {
-	t_data	*data;
+	int	i;
 
-	data = philo->data;
-	pthread_mutex_unlock(&philo->left_fork[philo->id]);
-	pthread_mutex_unlock(&philo->right_fork[(philo->id + 1) % data->nb_philos]);
+	i = 0;
+	while (i < data->nb_philos)
+	{
+		pthread_mutex_lock(&data->philos[i].mut_last_eat_time);
+		pthread_mutex_unlock(&data->philos[i].mut_last_eat_time);
+		i++;
+	}
+	return (0);
+}
+
+
+int nb_meals_option(t_data *data)
+{
+	if (data->nb_meals == -1)
+		return (false);
+	return (true);
 }
