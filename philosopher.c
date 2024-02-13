@@ -64,8 +64,6 @@ int	philosophers(int argc, char **argv)
 	if (init_data(&data, argc, argv) != 0)
 		return (1); // MALLOC ERROR
 	printf("Data initialized\n");
-	init_mutex(&data);
-	printf("Mutex initialized\n");
 	init_forks(&data);
 	printf("Forks initialized\n");
 	init_philos(&data);

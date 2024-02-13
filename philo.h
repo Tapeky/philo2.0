@@ -89,9 +89,10 @@ int	is_input_valid(char **argv);
 
 // INIT
 
+int		malloc_data(t_data *data);
 int		init_data(t_data *data, int argc, char **argv);
-void	init_philos(t_data *data);
-void	init_forks(t_data *data);
+int		init_philos(t_data *data);
+int		init_forks(t_data *data);
 void	init_mutex(t_data *data);
 void	init_all(t_data *data, char **argv);
 int set_keep_iterating(t_data *data, bool value);
