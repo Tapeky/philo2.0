@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:58:00 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/08 14:18:17 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/13 15:24:19 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ void	init_forks(t_data *data)
 
 	if (!data->forks)
 		return ;
+	printf("AAAAAAAAAAAAA\n");
 	i = 0;
-	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
+	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philos + 1);
 	while (i < data->nb_philos)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);

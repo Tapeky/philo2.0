@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:30:28 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/12 16:36:55 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/13 09:30:11 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,12 @@ int	philosophers(int argc, char **argv)
 	if (init_data(&data, argc, argv) != 0)
 		return (1); // MALLOC ERROR
 	printf("Data initialized\n");
-	init_philos(&data);
-	printf("Philosophers initialized\n");
+	init_mutex(&data);
+	printf("Mutex initialized\n");
 	init_forks(&data);
 	printf("Forks initialized\n");
+	init_philos(&data);
+	printf("Philosophers initialized\n");	
 	run_threads(&data);
 	printf("Threads running\n");
 	join_threads(&data);

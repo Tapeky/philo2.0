@@ -56,6 +56,8 @@ int	take_forks(t_philo *philo)
 }
 
 
+
+
 /*
 int	handle_1_philo(t_philo *philo)
 {
