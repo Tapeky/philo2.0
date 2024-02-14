@@ -6,7 +6,7 @@
 /*   By: tsadouk <tsadouk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:58:00 by tsadouk           #+#    #+#             */
-/*   Updated: 2024/02/13 15:24:19 by tsadouk          ###   ########.fr       */
+/*   Updated: 2024/02/14 15:14:44 by tsadouk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	init_data(t_data *data, int argc, char **argv)
 	if (data->nb_philos < 2 || data->nb_philos > 200 || data->nb_meals < 0
 		|| data->eat_time < 60 || data->die_time < 60 || data->sleep_time < 60)
 		return (1);
+	malloc_data(data);
 	init_mutex(data);
 	return (0);
 }
